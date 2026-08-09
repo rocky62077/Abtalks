@@ -46,7 +46,7 @@ function Dashboard() {
         // --------------------------------------
 
         const userResponse = await fetch(
-          "http://localhost:5001/api/v1/auth/me",
+          `${import.meta.env.VITE_API_URL}/api/v1/auth/me`,
           {
             method: "GET",
 
@@ -75,7 +75,7 @@ function Dashboard() {
         // --------------------------------------
 
         const progressResponse = await fetch(
-          "http://localhost:5001/api/v1/progress",
+          `${import.meta.env.VITE_API_URL}/api/v1/progress`,
           {
             method: "GET",
 

@@ -43,14 +43,17 @@ function ChallengeDay() {
       }
 
       try {
-        const response = await fetch("http://localhost:5001/api/v1/progress", {
-          method: "GET",
+        const response = await fetch(
+          `${import.meta.env.VITE_API_URL}/api/v1/progress`,
+          {
+            method: "GET",
 
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "application/json",
+            },
           },
-        });
+        );
 
         const result = await response.json();
 
@@ -144,24 +147,27 @@ function ChallengeDay() {
     try {
       setSubmitting(true);
 
-      const response = await fetch("http://localhost:5001/api/v1/proofs", {
-        method: "POST",
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/v1/proofs`,
+        {
+          method: "POST",
 
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+
+          body: JSON.stringify({
+            // IMPORTANT:
+            // Submit the day from the URL
+            day: challengeDay,
+
+            githubUrl: githubUrl.trim(),
+
+            linkedinUrl: linkedinUrl.trim(),
+          }),
         },
-
-        body: JSON.stringify({
-          // IMPORTANT:
-          // Submit the day from the URL
-          day: challengeDay,
-
-          githubUrl: githubUrl.trim(),
-
-          linkedinUrl: linkedinUrl.trim(),
-        }),
-      });
+      );
 
       const result = await response.json();
 
