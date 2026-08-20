@@ -1,214 +1,204 @@
-# 🚀 ABTalks — 60-Day Build Challenge
+# 🚀 ABTalks
 
-> **Build every day. Make your progress impossible to ignore.**
+### Build in Public. Stay Consistent. Become Better.
 
-ABTalks is a full-stack web application designed around a **60-day building challenge**. The platform helps users create an account, authenticate securely, track their challenge progress, submit proof of their work, and build a visible record of consistent execution.
+ABTalks is a **60-day build-in-public platform** designed to help users stay consistent with their goals, document their progress, and build accountability through daily challenges.
 
-The goal is simple:
-
-**Don't just learn. Build. Track it. Prove it.**
+The platform provides user authentication, protected user areas, daily challenge functionality, and a clean modern interface focused on consistency and personal growth.
 
 ---
 
 ## 🌐 Live Demo
 
-**ABTalks:**
+**Live Website:**  
 https://abtalks-teal.vercel.app/
 
-**Dashboard:**
+**Dashboard:**  
 https://abtalks-teal.vercel.app/dashboard
 
-> The dashboard requires authentication. Create an account or log in to access it.
+**GitHub Repository:**  
+https://github.com/rocky62077/Abtalks
 
 ---
 
-## 📦 Source Code
+## 🎯 Problem Statement
 
-**GitHub Repository:**
-https://github.com/rocky62077/Abtalks
+Many people start personal projects, learning journeys, fitness goals, and other long-term challenges but struggle to remain consistent.
 
-The repository contains the complete frontend, backend, deployment configuration, and project documentation.
+ABTalks addresses this problem by providing a simple environment where users can:
+
+- Create an account
+- Log in securely
+- Access a personalized dashboard
+- Follow a 60-day challenge
+- Track daily progress
+- Build consistency
+- Stay accountable
+- Document their journey
+
+The core idea is simple:
+
+> **Don't wait for motivation. Build consistency.**
 
 ---
 
 # ✨ Features
 
-## 🔐 Authentication
+### 🔐 Authentication
 
-* User registration
-* User login
-* JWT-based authentication
-* Protected routes
-* Current-user authentication
-* Persistent login state
-* Logout functionality
+- User registration
+- User login
+- JWT-based authentication
+- Protected routes
+- Current-user authentication
+- Password hashing with bcrypt
+- Logout functionality
+- Persistent authentication
 
-## 📊 Dashboard
+### 🏠 Dashboard
 
-The authenticated dashboard provides users with a centralized place to view and manage their challenge activity.
+Authenticated users can:
 
-Features include:
+- Access their personal dashboard
+- View their journey
+- Continue their challenge
+- Access daily progress
+- Manage their session
+- Logout from the application
 
-* Challenge progress
-* User information
-* Daily progress
-* Challenge activity
-* Proof-related actions
-* Authentication-aware UI
+### 📅 60-Day Challenge
 
-## 🎯 60-Day Challenge
+The central concept of ABTalks is the **60-day building journey**.
 
-ABTalks is designed around consistent daily building.
-
-The challenge encourages users to:
-
-1. Build something every day
-2. Track their progress
-3. Submit proof of work
-4. Maintain consistency
-5. Create a visible record of their journey
-
-## 🧾 Proof Submission
-
-Users can submit proof associated with their challenge progress.
-
-The application is designed to support media-based proof using **Cloudinary**.
-
-## ☁️ Cloud Storage
-
-Cloudinary is used for handling uploaded media and proof assets.
-
-## 📱 Responsive Interface
-
-The frontend is designed to provide a clean experience across desktop and mobile screen sizes.
-
----
-
-# 🏗️ System Architecture
+Users can work through daily challenges and maintain consistency throughout the journey.
 
 ```text
-                         ┌──────────────────────┐
-                         │      ABTalks UI      │
-                         │   React + Vite       │
-                         └──────────┬───────────┘
-                                    │
-                                    │ HTTPS
-                                    ▼
-                         ┌──────────────────────┐
-                         │       Vercel         │
-                         │ Frontend + API       │
-                         └──────────┬───────────┘
-                                    │
-                                    ▼
-                         ┌──────────────────────┐
-                         │   Express Backend    │
-                         │   REST API           │
-                         └──────┬───────┬───────┘
-                                │       │
-                  ┌─────────────┘       └──────────────┐
-                  ▼                                    ▼
-        ┌──────────────────┐                 ┌──────────────────┐
-        │   MongoDB Atlas  │                 │    Cloudinary    │
-        │   Application DB │                 │   Media Storage  │
-        └──────────────────┘                 └──────────────────┘
+Day 1
+  ↓
+Day 2
+  ↓
+Day 3
+  ↓
+...
+  ↓
+Day 60
 ```
+
+### 🛡️ Protected Routes
+
+Private pages are protected from unauthenticated users.
+
+If a user does not have a valid authentication token, protected pages redirect the user toward authentication.
 
 ---
 
-# 🛠️ Tech Stack
+# 🧱 Tech Stack
 
 ## Frontend
 
-| Technology   | Purpose                                |
-| ------------ | -------------------------------------- |
-| React        | UI development                         |
-| Vite         | Frontend tooling and production builds |
-| React Router | Client-side routing                    |
-| CSS          | Styling and responsive UI              |
+- React 19
+- Vite
+- React Router
+- JavaScript
+- CSS
 
 ## Backend
 
-| Technology    | Purpose                       |
-| ------------- | ----------------------------- |
-| Node.js       | JavaScript runtime            |
-| Express.js    | REST API                      |
-| Mongoose      | MongoDB object modeling       |
-| JWT           | Authentication                |
-| bcryptjs      | Password hashing              |
-| dotenv        | Environment configuration     |
-| Helmet        | Security-related HTTP headers |
-| CORS          | Cross-origin API access       |
-| Morgan        | HTTP request logging          |
-| Cookie Parser | Cookie handling               |
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- JWT
+- bcryptjs
+- CORS
+- Helmet
+- Morgan
+- dotenv
 
-## Database & Storage
+## Deployment & Services
 
-| Technology    | Purpose             |
-| ------------- | ------------------- |
-| MongoDB Atlas | Database            |
-| Cloudinary    | Image/media storage |
+- Vercel
+- GitHub
+- MongoDB Atlas
+- Cloudinary
 
-## Deployment
+---
 
-| Technology | Purpose                            |
-| ---------- | ---------------------------------- |
-| Vercel     | Production deployment              |
-| GitHub     | Source control and project hosting |
+# 🏗️ Architecture
+
+```text
+                         ABTalks
+                            │
+             ┌──────────────┴──────────────┐
+             │                             │
+        Frontend                        Backend
+             │                             │
+       React + Vite                  Express.js
+             │                             │
+             │                       API Routes
+             │                             │
+             │                       Controllers
+             │                             │
+             │                       Middleware
+             │                             │
+             └──────────────┬──────────────┘
+                            │
+                         MongoDB
+                            │
+                       MongoDB Atlas
+```
 
 ---
 
 # 📁 Project Structure
 
 ```text
-Abtalks/
+abtalks/
 │
 ├── backend/
 │   ├── api/
 │   │   └── index.js
 │   │
-│   └── src/
-│       ├── config/
-│       │   └── env.js
-│       │
-│       ├── controllers/
-│       │   └── auth.controller.js
-│       │
-│       ├── database/
-│       │   └── db.js
-│       │
-│       ├── middlewares/
-│       │   └── auth.middleware.js
-│       │
-│       ├── models/
-│       │
-│       ├── routes/
-│       │   └── auth.routes.js
-│       │
-│       ├── app.js
-│       └── server.js
-│
-├── public/
+│   ├── src/
+│   │   ├── config/
+│   │   │   └── env.js
+│   │   │
+│   │   ├── controllers/
+│   │   │   └── auth.controller.js
+│   │   │
+│   │   ├── database/
+│   │   │   └── db.js
+│   │   │
+│   │   ├── middlewares/
+│   │   │   └── auth.middleware.js
+│   │   │
+│   │   ├── models/
+│   │   │   └── user.model.js
+│   │   │
+│   │   ├── routes/
+│   │   │   └── auth.routes.js
+│   │   │
+│   │   ├── app.js
+│   │   └── server.js
+│   │
+│   └── package.json
 │
 ├── src/
 │   ├── components/
-│   │   └── ProtectedRoute.jsx
-│   │
 │   ├── pages/
-│   │   ├── Dashboard.jsx
-│   │   ├── Login.jsx
-│   │   ├── Signup.jsx
-│   │   └── ChallengeDay.jsx
-│   │
 │   ├── App.jsx
 │   ├── App.css
-│   └── index.css
+│   ├── index.css
+│   └── main.jsx
 │
-├── .gitignore
-├── package.json
-├── vite.config.js
+├── public/
+├── dist/
+│
+├── PROMPTS.md
 ├── vercel.json
-├── README.md
-└── PROMPTS.md
+├── vite.config.js
+├── package.json
+└── README.md
 ```
 
 ---
@@ -222,23 +212,24 @@ ABTalks uses JWT-based authentication.
 ```text
 User
  │
- ▼
-Signup Form
+ │ POST /api/v1/auth/register
+ ↓
+Express API
  │
- ▼
-POST /api/v1/auth/register
+ ↓
+Validate User
  │
- ▼
-Express Controller
+ ↓
+Hash Password
  │
- ▼
-Password Hashing
- │
- ▼
+ ↓
 MongoDB
  │
- ▼
-User Created
+ ↓
+Create User
+ │
+ ↓
+Return Authentication Data
 ```
 
 ### Login
@@ -246,111 +237,118 @@ User Created
 ```text
 User
  │
- ▼
-Login Form
+ │ POST /api/v1/auth/login
+ ↓
+Express API
  │
- ▼
-POST /api/v1/auth/login
+ ↓
+Find User
  │
- ▼
-Verify Credentials
+ ↓
+Verify Password
  │
- ▼
+ ↓
 Generate JWT
  │
- ▼
-Frontend Stores Authentication State
- │
- ▼
-Dashboard
+ ↓
+Return Token
 ```
 
-### Protected Route
+### Protected Request
 
 ```text
-Request
+Frontend
    │
-   ▼
-JWT Token
+   │ Authentication Token
+   ↓
+Backend
    │
-   ▼
-Authentication Middleware
+   ↓
+JWT Middleware
    │
-   ├── Invalid → Unauthorized
+   ↓
+Verify Token
    │
-   └── Valid
-         │
-         ▼
-      Controller
-         │
-         ▼
-      Response
+   ↓
+Protected Controller
 ```
 
 ---
 
 # 🔌 API Endpoints
 
-## Authentication
-
-### Register
+## Register
 
 ```http
 POST /api/v1/auth/register
 ```
 
-Example request:
+Request:
 
 ```json
 {
-  "fullName": "John Doe",
-  "email": "john@example.com",
+  "fullName": "Test User",
+  "email": "test@example.com",
   "password": "123456"
 }
 ```
 
-### Login
+---
+
+## Login
 
 ```http
 POST /api/v1/auth/login
 ```
 
-Example request:
+Request:
 
 ```json
 {
-  "email": "john@example.com",
+  "email": "test@example.com",
   "password": "123456"
 }
 ```
 
-### Current User
+---
+
+## Current User
 
 ```http
 GET /api/v1/auth/me
 ```
 
-Requires authentication.
-
-### Progress
-
-```http
-GET /api/v1/progress
-```
-
-### Proofs
-
-```http
-POST /api/v1/proofs
-```
+This endpoint requires authentication.
 
 ---
 
 # ⚙️ Environment Variables
 
-Create the required environment variables locally.
+Environment variables are used to keep sensitive configuration outside the source code.
 
-### Backend
+## Frontend
+
+Create:
+
+```text
+.env
+```
+
+Example:
+
+```env
+VITE_API_URL=https://abtalks-teal.vercel.app
+```
+
+## Backend
+
+Create:
+
+```text
+backend/.env
+```
+
+Example:
 
 ```env
 PORT=5001
@@ -362,29 +360,19 @@ JWT_SECRET=your_jwt_secret
 JWT_EXPIRES_IN=7d
 
 CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
+
 CLOUDINARY_API_KEY=your_cloudinary_api_key
+
 CLOUDINARY_API_SECRET=your_cloudinary_api_secret
 
-NODE_ENV=development
+NODE_ENV=production
 ```
 
-### Frontend
-
-```env
-VITE_API_URL=http://localhost:5001
-```
-
-For production, the frontend uses the deployed API origin through:
-
-```env
-VITE_API_URL=https://abtalks-teal.vercel.app
-```
-
-> **Never commit real credentials or secrets to GitHub.**
+> **Never commit real API keys, database credentials, JWT secrets, or `.env` files to GitHub.**
 
 ---
 
-# 🚀 Local Development
+# 💻 Local Development
 
 ## 1. Clone the repository
 
@@ -404,21 +392,21 @@ npm install
 ```bash
 cd backend
 npm install
-cd ..
 ```
 
 ## 4. Configure environment variables
 
-Create the appropriate `.env` files and add your MongoDB, JWT, and Cloudinary configuration.
+Create the required `.env` files and add your configuration.
 
 ## 5. Start the backend
 
+From the `backend` directory:
+
 ```bash
-cd backend
 npm run dev
 ```
 
-The backend runs locally on:
+Backend:
 
 ```text
 http://localhost:5001
@@ -429,265 +417,198 @@ http://localhost:5001
 Open another terminal:
 
 ```bash
+cd abtalks
 npm run dev
 ```
 
-Vite will provide the local frontend URL.
+Vite will provide the local development URL.
 
 ---
 
-# 🧪 Production Testing
+# 🧪 Production Build
 
-The production API was tested directly against the deployed Vercel application.
+Create the production frontend build:
 
-Example registration request:
-
-```http
-POST /api/v1/auth/register
+```bash
+npm run build
 ```
 
-The production server successfully returned:
-
-```json
-{
-  "success": true,
-  "statusCode": 201,
-  "message": "User registered successfully"
-}
-```
-
-This verified the complete production flow:
+The generated files are placed inside:
 
 ```text
-Frontend
-   ↓
-Vercel
-   ↓
-Express API
-   ↓
-Authentication Controller
-   ↓
-MongoDB Atlas
+dist/
 ```
 
 ---
 
-# 🐛 Deployment Challenges Solved
+# 🚀 Deployment
 
-During deployment, several production issues were encountered and resolved.
-
-## 1. Localhost API in Production
-
-Initially, the frontend attempted to call:
+ABTalks is deployed using Vercel.
 
 ```text
-http://localhost:5001
+                         GitHub
+                            │
+                            ↓
+                          Vercel
+                            │
+              ┌─────────────┴─────────────┐
+              │                           │
+         React/Vite                  Express API
+          Frontend                    Serverless
+              │                           │
+              └─────────────┬─────────────┘
+                            │
+                            ↓
+                       MongoDB Atlas
 ```
 
-This works locally but cannot reach the developer's machine from a deployed website.
+### Production URL
 
-### Solution
-
-The frontend was changed to use:
-
-```js
-import.meta.env.VITE_API_URL
-```
-
-Production requests now target the deployed backend.
-
----
-
-## 2. Vercel API Routing
-
-The Express backend needed to be exposed through Vercel's serverless environment.
-
-A Vercel configuration was added to route:
-
-```text
-/api/*
-```
-
-to the backend API function.
-
----
-
-## 3. MongoDB Connection Timeout
-
-The deployed API initially produced:
-
-```text
-Operation `users.findOne()` buffering timed out after 10000ms
-```
-
-The database connection was adapted for the Vercel serverless environment.
-
-The application now:
-
-* Reuses an existing Mongoose connection when available
-* Establishes a connection before processing API requests
-* Uses a connection timeout
-* Properly propagates connection errors
-
----
-
-## 4. SPA Static Asset Routing
-
-The Vercel routing configuration was also adjusted so that existing frontend assets are served correctly before falling back to the React application.
-
-This prevented JavaScript assets from incorrectly receiving the application's HTML response.
+https://abtalks-teal.vercel.app/
 
 ---
 
 # 🔒 Security
 
-The project follows several basic security practices:
+The application includes several security practices:
 
-* Passwords are hashed using bcrypt
-* Authentication uses JWT
-* Protected routes verify authentication
-* Sensitive configuration is stored in environment variables
-* Helmet is used for security-related HTTP headers
-* CORS is configured for API access
-* Secrets are excluded from source control
+- Password hashing using bcryptjs
+- JWT authentication
+- Protected API routes
+- Helmet security middleware
+- CORS configuration
+- Environment variables for secrets
+- MongoDB authentication
+- Authentication validation
+- Protected frontend routes
 
-### Never commit:
-
-```text
-.env
-.env.*
-```
-
----
-
-# 📈 Future Improvements
-
-Potential future improvements include:
-
-* [ ] HTTP-only cookie-based authentication
-* [ ] Refresh-token rotation
-* [ ] Email verification
-* [ ] Password reset
-* [ ] Better session management
-* [ ] Challenge streak visualization
-* [ ] Leaderboard
-* [ ] Public builder profiles
-* [ ] GitHub proof verification
-* [ ] LinkedIn proof integration
-* [ ] Notifications
-* [ ] Admin dashboard
-* [ ] Automated tests
-* [ ] API documentation with Swagger/OpenAPI
-* [ ] CI/CD checks with GitHub Actions
+Sensitive credentials are not included in the repository.
 
 ---
 
 # 🤖 AI-Assisted Development
 
-ABTalks was developed using an iterative AI-assisted development workflow.
+ABTalks was developed using an AI-assisted, iterative development workflow.
 
-AI assistance was used for:
+AI assistance was used throughout different stages of development, including:
 
-* Architecture planning
-* UI development
-* Backend API implementation
-* Authentication implementation
-* Debugging
-* Deployment configuration
-* MongoDB connection troubleshooting
-* Vercel configuration
-* Production debugging
-* Documentation
+- Project planning
+- UI development
+- Backend architecture
+- Authentication implementation
+- Database integration
+- API development
+- Debugging
+- Vercel deployment
+- Error resolution
+- Production testing
+- Code refinement
 
-The development process was iterative:
+The prompts and development process are documented separately for transparency.
 
-```text
-Idea
- ↓
-Architecture
- ↓
-Implementation
- ↓
-Local Testing
- ↓
-Deployment
- ↓
-Production Error
- ↓
-Debugging
- ↓
-Fix
- ↓
-Production Testing
-```
+### Prompt Documentation
 
-The project's AI-development prompts and workflow are documented separately in:
-
-```text
-PROMPTS.md
-```
+👉 [View PROMPTS.md](./PROMPTS.md)
 
 ---
 
-# 🎯 Project Goal
+# 📸 Product Highlights
 
-ABTalks is built around one idea:
+### Landing Page
 
-> **Consistency creates proof.**
-
-A person can say they are learning to code.
-
-A portfolio can say they know a technology.
-
-But a visible history of things actually built provides much stronger evidence.
-
-ABTalks aims to turn daily learning into a measurable and visible building journey.
-
----
-
-# 📸 Project Highlights
-
-### Landing / Challenge
-
-Users can understand the purpose of the 60-day challenge and begin their journey.
+A focused landing experience introducing the 60-day building journey.
 
 ### Authentication
 
-Users can securely create an account and log in.
+A simple registration and login experience for users.
 
 ### Dashboard
 
-Authenticated users can view their challenge information and progress.
+A protected dashboard where authenticated users can continue their journey.
 
-### Challenge Day
+### Daily Challenge
 
-Users can work through individual challenge days and submit proof.
+The core experience revolves around building consistently over 60 days.
 
 ---
 
-# 🏆 Submission Links
+# 🛣️ Future Improvements
 
-| Resource      | Link                                                       |
-| ------------- | ---------------------------------------------------------- |
-| 🌐 Live Demo  | https://abtalks-teal.vercel.app/                           |
-| 📊 Dashboard  | https://abtalks-teal.vercel.app/dashboard                  |
-| 💻 GitHub     | https://github.com/rocky62077/Abtalks                      |
-| 🤖 AI Prompts | https://github.com/rocky62077/Abtalks/blob/main/PROMPTS.md |
+Planned improvements include:
+
+- Email verification
+- Password reset
+- Improved session management
+- Challenge streak analytics
+- Public builder profiles
+- Leaderboard
+- Notifications
+- Automated testing
+- API documentation
+- Social sharing
+- Progress visualization
+
+---
+
+# 🎯 Core Philosophy
+
+ABTalks is built around three simple principles:
+
+### 1. Build
+
+Turn ideas into real projects.
+
+### 2. Document
+
+Share the process instead of only showing the final result.
+
+### 3. Stay Consistent
+
+Small progress every day compounds into meaningful results.
+
+---
+
+# 📊 Project Status
+
+| Component | Status |
+|---|---|
+| Frontend | ✅ Complete |
+| Backend | ✅ Complete |
+| Authentication | ✅ Complete |
+| MongoDB Integration | ✅ Complete |
+| Protected Routes | ✅ Complete |
+| Vercel Deployment | ✅ Complete |
+| Production API | ✅ Working |
+| Prompt Documentation | ✅ Included |
+| README | ✅ Complete |
 
 ---
 
 # 👨‍💻 Developer
 
-**Vicky Kumar**
+Built as part of a **60-day build-in-public journey**.
 
-Built as a full-stack web development project using modern JavaScript technologies and AI-assisted development.
+## ABTalks
 
----
-
-## ⭐ If you like the project
-
-Give the repository a ⭐ on GitHub and feel free to explore, fork, and improve it.
+> **Build something every day.**  
+> **Document the journey.**  
+> **Become better.**
 
 ---
 
-**ABTalks — Build every day. Track your progress. Show your proof. 🚀**
+# 🔗 Important Links
+
+| Resource | Link |
+|---|---|
+| 🌐 Live Website | https://abtalks-teal.vercel.app/ |
+| 📊 Dashboard | https://abtalks-teal.vercel.app/dashboard |
+| 💻 GitHub Repository | https://github.com/rocky62077/Abtalks |
+| 🤖 AI Prompts | [PROMPTS.md](./PROMPTS.md) |
+
+---
+
+## ⭐ Support
+
+If you find ABTalks interesting, consider giving the repository a ⭐ on GitHub.
+
+**Build. Document. Stay Consistent. 🚀**
