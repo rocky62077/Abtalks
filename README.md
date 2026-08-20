@@ -1,4 +1,4 @@
-# 🚀 ABTalks
+# 🚀 ABTalks -- 60-Day Build Challenge
 
 ### Build in Public. Stay Consistent. Become Better.
 
